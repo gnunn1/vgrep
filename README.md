@@ -18,7 +18,7 @@ At this point in time the application should be considered early alpha and has o
 ### Dependencies
 
 Visual Grep requires the following libraries to be installed in order to run:
-    * GTK 3.1.6 or later
+* GTK 3.1.6 or later
 
 ### Building
 
@@ -32,8 +32,8 @@ dub build --build=release
 #### Build Dependencies
 
 Visual Grep depends on the following libraries as defined in dub.json:
-    * gtkd >= 3.1.4
-    * sdlang-d >= 0.9.3
+* gtkd >= 3.1.4
+* sdlang-d >= 0.9.3
 
 ### Installation
 
