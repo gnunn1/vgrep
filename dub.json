@@ -1,0 +1,12 @@
+{
+	"name": "vgrep",
+	"description": "Visual Grep",
+	"copyright": "Copyright © 2015, Gerald Nunn",
+	"license": "MPL-2.0",
+	"authors": ["Gerald Nunn"],
+	"buildRequirements": ["allowWarnings"],
+	"dependencies": {
+		"gtk-d": ">=3.1.4",
+		"sdlang-d": "~>0.9.3"
+	}
+}

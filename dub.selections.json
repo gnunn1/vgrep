@@ -1,0 +1,8 @@
+{
+	"fileVersion": 1,
+	"versions": {
+		"libinputvisitor": "1.2.0",
+		"gtk-d": "3.2.0",
+		"sdlang-d": "0.9.3"
+	}
+}
