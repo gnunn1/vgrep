@@ -49,8 +49,8 @@ dub build --build=release
 #### Build Dependencies
 
 Visual Grep depends on the following libraries as defined in dub.json:
-* gtkd >= 3.1.4
-* sdlang-d >= 0.9.3
+* [gtkd](http://gtkd.org/) >= 3.1.4
+* [sdlang-d](https://github.com/Abscissa/SDLang-D/blob/master/HOWTO.md) >= 0.9.3
 
 ### Installation
 
