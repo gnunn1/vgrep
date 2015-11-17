@@ -30,10 +30,10 @@ Visual Grep requires the following libraries to be installed in order to run:
 
 Since this is an early alpha release, there are a number of features which have not yet been developed including:
 
-* Save Window state and position
 * Save recent searches
-* Add the ability to stop searches in progress, struggling a bit with the best UI for this one. Currently thinking of emulating Nautilus drop down button for file progress that was added in 3.18
 * Support regex for file matching
+* Command line parameters
+* Support sorting in result and match lists
 
 Additional feature requests are gladly accepted
 
