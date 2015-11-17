@@ -1,33 +1,6 @@
 ﻿<Properties StartupItem="dub.json">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Default" PreferredExecutionTarget="debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="source/vg/appwindow.d">
-    <Files>
-      <File FileName="source/app.d" Line="5" Column="1" />
-      <File FileName="source/vg/application.d" Line="1" Column="3" />
-      <File FileName="source/vg/configuration.d" Line="1" Column="3" />
-      <File FileName="source/vg/constants.d" Line="1" Column="3" />
-      <File FileName="source/vg/finddialog.d" Line="1" Column="3" />
-      <File FileName="source/vg/appwindow.d" Line="300" Column="12" />
-    </Files>
-    <Pads>
-      <Pad Id="ProjectPad">
-        <State name="__root__">
-          <Node name="vgrep" expanded="True">
-            <Node name="vgrep" expanded="True">
-              <Node name="source" expanded="True">
-                <Node name="gtk" expanded="True">
-                  <Node name="widget" expanded="True" />
-                </Node>
-                <Node name="vg" expanded="True">
-                  <Node name="appwindow.d" selected="True" />
-                </Node>
-              </Node>
-            </Node>
-          </Node>
-        </State>
-      </Pad>
-    </Pads>
-  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workbench />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>

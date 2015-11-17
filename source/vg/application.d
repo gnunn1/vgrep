@@ -16,6 +16,8 @@ import gtk.AboutDialog;
 import gtk.Application;
 import gtk.Dialog;
 
+import gtk.util;
+
 import vg.appwindow;
 import vg.constants;
 import vg.configuration;
@@ -166,7 +168,9 @@ private:
 	}
 
 	void appActivate(GioApplication app) { 
-		window = new MainWindow(this); 
+		window = new MainWindow(this);
+		restoreWindowDisplayState(window, Configuration.instance.mainWindow);
+		window.showAll();
 	}
 
 	void appStartup(GioApplication app) { 
@@ -189,7 +193,4 @@ public:
 		this.addOnStartup(&appStartup);
 		this.addOnShutdown(&appShutdown);
 	}
-
-
-
 }

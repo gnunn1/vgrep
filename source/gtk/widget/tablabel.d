@@ -28,14 +28,14 @@ private:
 
 public:
 
-	this(string label, Widget page) {
+	this(string text, Widget page) {
 		super(Orientation.HORIZONTAL, 5);
 
 		this.page = page;
 
-		Label l = new Label(label);
-		l.setHexpand(true);
-		add(l);
+		label = new Label(text);
+		label.setHexpand(true);
+		add(label);
 
 		button = new Button("window-close-symbolic", IconSize.MENU);
 		button.setRelief(ReliefStyle.NONE);
@@ -52,4 +52,11 @@ public:
 		closeClickedHandlers ~= handler;
 	}
 
+	@property string text() {
+		return label.getText();
+	}
+
+	@property void text(string value) {
+		label.setText(value);
+	}
 }

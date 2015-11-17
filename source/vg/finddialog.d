@@ -28,13 +28,14 @@ private:
 	ComboBoxText cbPattern;
 	ComboBoxText cbPath;
 	ComboBoxText cbMask;
+	Entry eSearchName;
 	Switch swCaseInsensitive;
 	Switch swSearchSubdirectories;
 	Switch swFollowSymbolic;
 
 	string id;
 
-	void initUI() {
+	void createUI() {
 		setDefaultSize(800,300);
 
 		//Create Grid Layour
@@ -47,32 +48,53 @@ private:
 		grid.setMarginLeft(18);
 		grid.setMarginRight(18);
 
-		Label label = new Label("<b>Search Text</b>");
+		int row = 0;
+		//Search Label Title Text
+		Label label = new Label("<b>Search Name</b>");
 		label.setUseMarkup(true);
 		label.setHalign(Align.START);
+		grid.attach(label,0,row,2,1);
+		row++;
 
-		grid.attach(label,0,0,2,1);
+		//Search Label
+		grid.attach(createLabel("Name"),0,row,1,1);
+		eSearchName = new Entry();
+		grid.attach(eSearchName, 1,row,1,1);
+		row++;
 
-		grid.attach(createLabel("Pattern"),0,1,1,1);
+		//Search Text Title Label
+		label = new Label("<b>Search Text</b>");
+		label.setUseMarkup(true);
+		label.setHalign(Align.START);
+		label.setMarginTop(18);
+		grid.attach(label,0,row,2,1);
+		row++;
+
+		//Search Pattern
+		grid.attach(createLabel("Pattern"),0,row,1,1);
 		cbPattern = new ComboBoxText(true);
 		cbPattern.setHexpand(true);
 		cbPattern.addOnChanged(&changeListener);
-		grid.attach(cbPattern,1,1,1,1);
+		grid.attach(cbPattern,1,row,1,1);
+		row++;
 
-		//Create Case Sensitive Row
+		//Case Insensitive
 		swCaseInsensitive = new Switch();
 		swCaseInsensitive.setHalign(GtkAlign.START);
-		grid.attach(createLabel("Case Insenstive"),0,2,1,1);
-		grid.attach(swCaseInsensitive,1,2,1,1);
+		grid.attach(createLabel("Case Insenstive"),0,row,1,1);
+		grid.attach(swCaseInsensitive,1,row,1,1);
+		row++;
 
+		//Search Path Ttitle Label
 		label = new Label("<b>Search Path</b>");
 		label.setUseMarkup(true);
 		label.setHalign(Align.START);
 		label.setMarginTop(18);
-		grid.attach(label,0,3,2,1);
+		grid.attach(label,0,row,2,1);
+		row++;
 
-		//Create Path Row Row
-		grid.attach(createLabel("Path"),0,4,1,1);
+		//Search Path
+		grid.attach(createLabel("Path"),0,row,1,1);
 		cbPath = new ComboBoxText(true);
 		cbPath.setHexpand(true);
 		cbPath.addOnChanged(&changeListener);
@@ -82,26 +104,30 @@ private:
 		Button button = new Button("folder-symbolic", IconSize.MENU);
 		box.add(button);
 		button.addOnClicked(&selectPath);
-		grid.attach(box,1,4,1,1);
+		grid.attach(box,1,row,1,1);
+		row++;
 
 		//Mask
-		grid.attach(createLabel("File Mask"),0,5,1,1);
+		grid.attach(createLabel("File Mask"),0,row,1,1);
 		cbMask = new ComboBoxText(true);
 		cbMask.setHexpand(true);
 		cbMask.addOnChanged(&changeListener);
-		grid.attach(cbMask,1,5,1,1);
+		grid.attach(cbMask,1,row,1,1);
+		row++;
 
 		//Create Search Subdirectories
 		swSearchSubdirectories = new Switch();
 		swSearchSubdirectories.setHalign(GtkAlign.START);
-		grid.attach(createLabel("Search Subdirectories"),0,6,1,1);
-		grid.attach(swSearchSubdirectories,1,6,1,1);
+		grid.attach(createLabel("Search Subdirectories"),0,row,1,1);
+		grid.attach(swSearchSubdirectories,1,row,1,1);
+		row++;
 
 		//Create Follow Symlinks Row
 		swFollowSymbolic = new Switch();
 		swFollowSymbolic.setHalign(GtkAlign.START);
-		grid.attach(createLabel("Follow Symlinks"),0,7,1,1);
-		grid.attach(swFollowSymbolic,1,7,1,1);
+		grid.attach(createLabel("Follow Symlinks"),0,row,1,1);
+		grid.attach(swFollowSymbolic,1,row,1,1);
+		row++;
 
 		getContentArea().add(grid);
 	}
@@ -145,11 +171,13 @@ public:
 		super("Find",parent,GtkDialogFlags.MODAL+GtkDialogFlags.USE_HEADER_BAR,[StockID.CANCEL,StockID.OK],[ResponseType.CANCEL,ResponseType.OK]);
 		setDefaultResponse(ResponseType.OK);
 		this.id = id;
-		initUI();
+		createUI();
 	}
 
-	this(Window parent, Criteria criteria) {
+	this(Window parent, string searchName, Criteria criteria) {
 		this(parent, criteria.id);
+
+		eSearchName.setText(searchName);
 
 		foreach(pattern; Configuration.instance.getPatterns()) cbPattern.appendText(pattern);
 		foreach(path; Configuration.instance.getPaths()) cbPath.appendText(path);
@@ -179,7 +207,6 @@ public:
 		updateUIState();
 	}
 
-
 	Criteria criteria() {
 		Criteria criteria = {id, 
 			cbPattern.getActiveText(), 
@@ -187,8 +214,17 @@ public:
 			cbPath.getActiveText(), 
 			cbMask.getActiveText(), 
 			swSearchSubdirectories.getActive(), 
-			swFollowSymbolic.getActive()};
+			swFollowSymbolic.getActive(),
+			Configuration.instance.maximumMatches};
 		return criteria;
+	}
+
+	@property string searchName() {
+		return eSearchName.getText();
+	}
+
+	@property void setSearchName(string name) {
+		eSearchName.setText(name);
 	}
 }
 

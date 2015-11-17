@@ -15,7 +15,7 @@ import util.file.search;
 
 alias ResultDelegate = bool delegate(string id, Result result);
 alias ProgressDelegate = bool delegate(string id, string path);
-alias FinishedDelegate = void delegate(string id, ulong total);
+alias FinishedDelegate = void delegate(string id, bool aborted, ulong total);
 
 /**
  * SearchManager manages a set of individual search requests, it basically
@@ -68,7 +68,7 @@ public:
 						SearchRequest request = requests[id];
 						if (request !is null && cbFinished !is null) {
 							requests.remove(id);
-							cbFinished(id, total);
+							cbFinished(id, (s==Status.ABORTED), total);
 						}
 					} else {
 						error(id, " :Failed to get request for id");
@@ -117,7 +117,6 @@ public:
 	}
 }
 
-
 /**
  * Represents an individual search request 
  */
@@ -139,11 +138,11 @@ public:
 
 	void search() {
 		trace("Putting search task in taskPool");
-		taskPool.put(task(&util.file.search.search, criteria, markup, thisTid));
+		tid = spawn(&util.file.search.search, criteria, markup, thisTid);
 	}
 
 	void stopSearch() {
-		//TODO - Send message to thread to stop search
+		tid.send(ABORT_MESSAGE);
 	}
 }
 
