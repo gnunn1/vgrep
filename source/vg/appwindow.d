@@ -62,7 +62,7 @@ private:
 
 	bool idleHandlerEnabled = false;
 
-	private void delegate() cbThreadIdle;
+	private bool delegate() cbThreadIdle;
 
 	void createUI() {
 		//Create header bar
@@ -214,14 +214,14 @@ private:
 		}
 	}
 
-	void checkPendingSearches() {
+	bool checkPendingSearches() {
 		//writeln("Checking pending messages...", thisTid);
 		if (!manager.checkPending(1)) {
 			idleHandlerEnabled = false;
 			trace("Stopping idle handler...");
-			throw new Exception("Abort idle processing");
+			return false;
 		}
-		//writeln("Finished checking pending messages...", thisTid);
+		return true;
 	}
 
 	bool windowClosed(Event event, Widget widget) {
