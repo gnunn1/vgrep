@@ -103,12 +103,22 @@ void threadsAddIdleDelegate(T, parameterTuple...)(T theDelegate, parameterTuple 
 	void* delegatePointer = null;
 	
 	auto wrapperDelegate = (parameterTuple parameters) {
-		bool ret = theDelegate(parameters);
+		bool callAgainNextIdleCycle = false;
 		
-		if (!ret) 
+		try
+		{
+			callAgainNextIdleCycle = theDelegate(parameters);
+		}
+		
+		catch (Exception e)
+		{
+			// Catch exceptions here as otherwise, memory may never be freed below.
+		}
+		
+		if (!callAgainNextIdleCycle)
 			core.memory.GC.removeRoot(delegatePointer);
-
-		return ret;
+		
+		return callAgainNextIdleCycle;
 	};
 	
 	delegatePointer = cast(void*) new DelegatePointer!(T, parameterTuple)(wrapperDelegate, parameters);
