@@ -64,6 +64,7 @@ private:
 
 	private bool delegate() cbThreadIdle;
 
+
 	void createUI() {
 		//Create header bar
 		hb = new HeaderBar();
