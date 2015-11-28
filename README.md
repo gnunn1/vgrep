@@ -54,4 +54,6 @@ Visual Grep depends on the following libraries as defined in dub.json:
 
 ### Installation
 
-No installation packages are available at this time, I hope to create Arch packages in the next couple of weeks. A compiled binary can be downloaded from the releases.
+Visual Grep can be installed on arch by using the *visual-grep* package in AUR.
+
+For other distros, no installation packages are available at this time. A compiled binary can be downloaded from the releases.
