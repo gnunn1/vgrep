@@ -10,6 +10,8 @@ import gtk.Main;
 import gtk.Version;
 import gtk.MessageDialog;
 
+import i18n.l10n;
+
 import vg.application;
 import vg.constants;
 
@@ -17,7 +19,10 @@ int main(string[] args) {
 
 	//Version checking cribbed from grestful, thanks!
 	string error = Version.checkVersion(GTK_VERSION_MAJOR, GTK_VERSION_MINOR, GTK_VERSION_PATCH);
-	
+
+    //textdomain
+    textdomain("vgrep");
+    	
 	if (error !is null)	{
 		Main.init(args);
 		
@@ -26,7 +31,7 @@ int main(string[] args) {
 			DialogFlags.MODAL,
 			MessageType.ERROR,
 			ButtonsType.OK,
-			"Your GTK version is too old, you need at least GTK " ~
+			_("Your GTK version is too old, you need at least GTK ") ~
 			to!string(GTK_VERSION_MAJOR) ~ '.' ~
 			to!string(GTK_VERSION_MINOR) ~ '.' ~
 			to!string(GTK_VERSION_PATCH) ~ '!',

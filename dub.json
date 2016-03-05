@@ -7,7 +7,7 @@
 	"buildRequirements": ["allowWarnings"],
 	"versions": ["StdLoggerDisableTrace"],
 	"dependencies": {
-		"gtk-d": ">=3.1.4",
+		"gtk-d": ">=3.2.2",
 		"sdlang-d": "~>0.9.3"
 	}
 }

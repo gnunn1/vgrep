@@ -43,6 +43,8 @@ import gtk.util;
 import gtk.threads;
 import util.file.search;
 
+import i18n.l10n;
+
 import vg.configuration;
 import vg.finddialog;
 import vg.search;
@@ -69,14 +71,14 @@ private:
 		//Create header bar
 		hb = new HeaderBar();
 		hb.setShowCloseButton(true);
-		hb.setTitle("Visual Grep");
+		hb.setTitle(_("Visual Grep"));
 		this.setTitlebar(hb);
 		
 		//Create Find button
 		btnFind = new Button(StockID.FIND);
 		btnFind.setAlwaysShowImage(true);
 		btnFind.addOnClicked(&showFindDialog);
-		btnFind.setTooltipText("Initiate new search");
+		btnFind.setTooltipText(_("Initiate new search"));
 
 		hb.packStart(btnFind);
 		
@@ -84,7 +86,7 @@ private:
 		Button btnNew = new Button("tab-new-symbolic", IconSize.BUTTON);
 		btnNew.setAlwaysShowImage(true);
 		btnNew.addOnClicked(&createNewTab);
-		btnNew.setTooltipText("Create a new tab");
+		btnNew.setTooltipText(_("Create a new tab"));
 
 		hb.packStart(btnNew);
 
@@ -110,7 +112,7 @@ private:
 		string id = randomUUID.toString();
 		ResultPage page = new ResultPage(manager, id);
 		pages[id] = page;
-		TabLabel label = new TabLabel("Search", page);
+		TabLabel label = new TabLabel(_("Search"), page);
 		label.addOnCloseClicked(&closePage);
 		nb.appendPage(page, label);
 		nb.showAll();
@@ -236,7 +238,7 @@ public:
 	this(Application application) {
 		super(application);
 		cbThreadIdle = &this.checkPendingSearches;
-		setTitle("Visual Grep");
+		setTitle(_("Visual Grep"));
 		setIconName("search");
 
 		manager = new SearchManager();
@@ -281,10 +283,10 @@ private:
 		ScrolledWindow scrollResults = new ScrolledWindow();
 		scrollResults.add(tvResults);
 		
-		TreeViewColumn column = new TreeViewColumn("File", new CellRendererText(), "text", 0);
+		TreeViewColumn column = new TreeViewColumn(_("File"), new CellRendererText(), "text", 0);
 		column.setExpand(true);
 		tvResults.appendColumn(column);
-		tvResults.appendColumn(new TreeViewColumn("Matches", new CellRendererText(), "text", 1));
+		tvResults.appendColumn(new TreeViewColumn(_("Matches"), new CellRendererText(), "text", 1));
 		lsResults = new ListStore([GType.STRING, GType.LONG]);
 		tvResults.setModel(lsResults);
 		
@@ -303,8 +305,8 @@ private:
 		ScrolledWindow scrollMatches = new ScrolledWindow();
 		scrollMatches.add(tvMatches);
 		
-		tvMatches.appendColumn(new TreeViewColumn("Line", new CellRendererText(), "text", 0));
-		column = new TreeViewColumn("Match", new CellRendererText(), "markup", 1);
+		tvMatches.appendColumn(new TreeViewColumn(_("Line"), new CellRendererText(), "text", 0));
+		column = new TreeViewColumn(_("Match"), new CellRendererText(), "markup", 1);
 		column.setExpand(true);
 		tvMatches.appendColumn(column);
 		
@@ -323,7 +325,7 @@ private:
 		btnAbort.setRelief(ReliefStyle.NONE);
 		btnAbort.setFocusOnClick(false);
 		btnAbort.setSensitive(false);
-		btnAbort.setTooltipText("Abort the current search");
+		btnAbort.setTooltipText(_("Abort the current search"));
 		btnAbort.addOnClicked(&abortSearch);
 		b.add(btnAbort);
 		
@@ -405,12 +407,12 @@ public:
 	void searchStart(Criteria value) {
 		this._criteria = value;
 		clear();
-		sbStatus.push(1, "Starting...");
+		sbStatus.push(1, _("Starting..."));
 		btnAbort.setSensitive(true);
 	}
 
 	void searchProgress(string currentPath) {
-		sbStatus.push(1, format("Search %s", currentPath));
+		sbStatus.push(1, format(_("Search %s"), currentPath));
 	}
 
 	void searchResult(Result result) {
@@ -423,7 +425,7 @@ public:
 
 	void searchCompleted(bool aborted, ulong total) {
 		sbStatus.removeAll(1);
-		sbStatus.push(0, format("%s, total matches found %d", aborted?"Aborted":"Completed", total));
+		sbStatus.push(0, format(_("%s, total matches found %d"), aborted?"Aborted":"Completed", total));
 		btnAbort.setSensitive(false);
 	}
 }

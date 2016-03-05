@@ -1,0 +1,10 @@
+[Desktop Entry]
+Name=Visual Grep
+Comment=A simple GTK3 GUI for grep
+Exec=vgrep
+Terminal=false
+Type=Application
+StartupNotify=true
+Categories=Utilities
+Icon=search
+Name[en_US]=com.gexperts.VisualGrep.desktop.in

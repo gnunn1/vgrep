@@ -18,6 +18,8 @@ import gtk.Dialog;
 
 import gtk.util;
 
+import i18n.l10n;
+
 import vg.appwindow;
 import vg.constants;
 import vg.configuration;
@@ -123,8 +125,8 @@ private:
 
 		with (menu = new Menu())
 		{
-			append("About", "app.about");
-			append("Quit", "app.quit");
+			append(_("About"), "app.about");
+			append(_("Quit"), "app.quit");
 		}
 		
 		this.setAppMenu(menu);

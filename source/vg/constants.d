@@ -11,7 +11,7 @@ immutable uint GTK_VERSION_PATCH = 0;
 immutable string APPLICATION_ID = "com.gexperts.VisualGrep";
 
 immutable string APPLICATION_NAME        = "Visual Grep";
-immutable string APPLICATION_VERSION     = "0.1";
+immutable string APPLICATION_VERSION     = "0.3.0";
 immutable string APPLICATION_AUTHOR      = "Gerald Nunn";
 immutable string APPLICATION_COPYRIGHT   = "Copyright \xc2\xa9 2015 " ~ APPLICATION_AUTHOR;
 immutable string APPLICATION_COMMENTS    = "A GTK+ gui for the grep utility";

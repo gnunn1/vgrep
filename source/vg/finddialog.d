@@ -5,6 +5,7 @@
 module vg.finddialog;
 
 import std.container;
+import std.format;
 
 import gtk.Box;
 import gtk.Button;
@@ -19,6 +20,8 @@ import gtk.Widget;
 import gtk.Window;
 
 import util.file.search;
+
+import i18n.l10n;
 
 import vg.configuration;
 
@@ -38,7 +41,7 @@ private:
 	void createUI() {
 		setDefaultSize(800,300);
 
-		//Create Grid Layour
+		//Create Grid Layout
 		Grid grid = new Grid();
 		
 		grid.setColumnSpacing(12);
@@ -50,20 +53,20 @@ private:
 
 		int row = 0;
 		//Search Label Title Text
-		Label label = new Label("<b>Search Name</b>");
+		Label label = new Label(format("<b>%s</b>", _("Search Name")));
 		label.setUseMarkup(true);
 		label.setHalign(Align.START);
 		grid.attach(label,0,row,2,1);
 		row++;
 
 		//Search Label
-		grid.attach(createLabel("Name"),0,row,1,1);
+		grid.attach(createLabel(_("Name")),0,row,1,1);
 		eSearchName = new Entry();
 		grid.attach(eSearchName, 1,row,1,1);
 		row++;
 
 		//Search Text Title Label
-		label = new Label("<b>Search Text</b>");
+		label = new Label(format("<b>%s</b>", _("Search Text")));
 		label.setUseMarkup(true);
 		label.setHalign(Align.START);
 		label.setMarginTop(18);
@@ -71,7 +74,7 @@ private:
 		row++;
 
 		//Search Pattern
-		grid.attach(createLabel("Pattern"),0,row,1,1);
+		grid.attach(createLabel(_("Pattern")),0,row,1,1);
 		cbPattern = new ComboBoxText(true);
 		cbPattern.setHexpand(true);
 		cbPattern.addOnChanged(&changeListener);
@@ -81,12 +84,12 @@ private:
 		//Case Insensitive
 		swCaseInsensitive = new Switch();
 		swCaseInsensitive.setHalign(GtkAlign.START);
-		grid.attach(createLabel("Case Insenstive"),0,row,1,1);
+		grid.attach(createLabel(_("Case Insenstive")),0,row,1,1);
 		grid.attach(swCaseInsensitive,1,row,1,1);
 		row++;
 
 		//Search Path Ttitle Label
-		label = new Label("<b>Search Path</b>");
+		label = new Label(format("<b>%s</b>", _("Search Path")));
 		label.setUseMarkup(true);
 		label.setHalign(Align.START);
 		label.setMarginTop(18);
@@ -94,7 +97,7 @@ private:
 		row++;
 
 		//Search Path
-		grid.attach(createLabel("Path"),0,row,1,1);
+		grid.attach(createLabel(_("Path")),0,row,1,1);
 		cbPath = new ComboBoxText(true);
 		cbPath.setHexpand(true);
 		cbPath.addOnChanged(&changeListener);
@@ -108,7 +111,7 @@ private:
 		row++;
 
 		//Mask
-		grid.attach(createLabel("File Mask"),0,row,1,1);
+		grid.attach(createLabel(_("File Mask")),0,row,1,1);
 		cbMask = new ComboBoxText(true);
 		cbMask.setHexpand(true);
 		cbMask.addOnChanged(&changeListener);
@@ -118,14 +121,14 @@ private:
 		//Create Search Subdirectories
 		swSearchSubdirectories = new Switch();
 		swSearchSubdirectories.setHalign(GtkAlign.START);
-		grid.attach(createLabel("Search Subdirectories"),0,row,1,1);
+		grid.attach(createLabel(_("Search Subdirectories")),0,row,1,1);
 		grid.attach(swSearchSubdirectories,1,row,1,1);
 		row++;
 
 		//Create Follow Symlinks Row
 		swFollowSymbolic = new Switch();
 		swFollowSymbolic.setHalign(GtkAlign.START);
-		grid.attach(createLabel("Follow Symlinks"),0,row,1,1);
+		grid.attach(createLabel(_("Follow Symlinks")),0,row,1,1);
 		grid.attach(swFollowSymbolic,1,row,1,1);
 		row++;
 
@@ -149,7 +152,7 @@ private:
 	}
 
 	void selectPath(Button button) {
-		FileChooserDialog dialog = new FileChooserDialog("Select Path", this, FileChooserAction.SELECT_FOLDER, ["Open", "Cancel"], [ResponseType.OK, ResponseType.CANCEL]);
+		FileChooserDialog dialog = new FileChooserDialog(_("Select Path"), this, FileChooserAction.SELECT_FOLDER, [_("Open"), _("Cancel")], [ResponseType.OK, ResponseType.CANCEL]);
 		scope(exit) dialog.destroy();
 		dialog.setDefaultResponse(ResponseType.OK);
 
@@ -168,7 +171,7 @@ private:
 
 public:
 	this(Window parent, string id) {
-		super("Find",parent,GtkDialogFlags.MODAL+GtkDialogFlags.USE_HEADER_BAR,[StockID.CANCEL,StockID.OK],[ResponseType.CANCEL,ResponseType.OK]);
+		super(_("Find"),parent,GtkDialogFlags.MODAL+GtkDialogFlags.USE_HEADER_BAR,[StockID.CANCEL,StockID.OK],[ResponseType.CANCEL,ResponseType.OK]);
 		setDefaultResponse(ResponseType.OK);
 		this.id = id;
 		createUI();

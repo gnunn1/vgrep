@@ -136,7 +136,7 @@ void search(Criteria criteria, MarkupTags markup, Tid tid) {
 	ulong totalMatchCount = 0;
 
 	foreach (DirEntry entry; dirEntries(criteria.path, wildcard, mode, criteria.followSymbolic).filter!(a => a.isFile)) {
-		info("Searching file ", entry.name);
+		trace("Searching file ", entry.name);
 		char[] buf;
 		string path = dirName(entry.name);
 		if (!path.equal(currentPath)) {
@@ -170,7 +170,7 @@ void search(Criteria criteria, MarkupTags markup, Tid tid) {
 		}
 
 		if (matches.length>0) {
-			info("Found %d matches in %s", matchCount, entry.name);
+			trace(format("Found %d matches in %s", matchCount, entry.name));
 			shared Result result = {entry.name, matches, matchCount};
 			totalMatchCount = totalMatchCount + matchCount;
 			tid.send(Status.PROGRESS_RESULT, criteria.id, result);
