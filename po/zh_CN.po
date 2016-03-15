@@ -1,0 +1,141 @@
+# vgrep zh_CN translation
+# Jeff Bai <jeffbai@aosc.xyz>, 2016.
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: Jeff Bai <jeffbai@aosc.xyz>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: zh_CN\n"
+"X-Generator: Poedit 1.8.7.1\n"
+
+#: source/vg/application.d:128
+msgid "About"
+msgstr "关于"
+
+#: source/vg/application.d:129
+msgid "Quit"
+msgstr "退出"
+
+#: source/vg/finddialog.d:56
+msgid "Search Name"
+msgstr "搜索名称"
+
+#: source/vg/finddialog.d:63
+msgid "Name"
+msgstr "名称"
+
+#: source/vg/finddialog.d:69
+msgid "Search Text"
+msgstr "搜索文本"
+
+#: source/vg/finddialog.d:77
+msgid "Pattern"
+msgstr "搜索模式"
+
+#: source/vg/finddialog.d:87
+msgid "Case Insenstive"
+msgstr "区分大小写"
+
+#: source/vg/finddialog.d:92
+msgid "Search Path"
+msgstr "搜索路径"
+
+#: source/vg/finddialog.d:100
+msgid "Path"
+msgstr "路径"
+
+#: source/vg/finddialog.d:114
+msgid "File Mask"
+msgstr "屏蔽文件"
+
+#: source/vg/finddialog.d:124
+msgid "Search Subdirectories"
+msgstr "搜索子目录"
+
+#: source/vg/finddialog.d:131
+msgid "Follow Symlinks"
+msgstr "跟随符号链接"
+
+#: source/vg/finddialog.d:155
+msgid "Select Path"
+msgstr "选择路径"
+
+#: source/vg/finddialog.d:155
+msgid "Open"
+msgstr "打开"
+
+#: source/vg/finddialog.d:155
+msgid "Cancel"
+msgstr "取消"
+
+#: source/vg/finddialog.d:174
+msgid "Find"
+msgstr "查找"
+
+#: source/vg/appwindow.d:74 source/vg/appwindow.d:241
+#: pkg/desktop/com.gexperts.VisualGrep.desktop.in:3
+msgid "Visual Grep"
+msgstr "图形化 Grep"
+
+#: source/vg/appwindow.d:81
+msgid "Initiate new search"
+msgstr "开始新搜索"
+
+#: source/vg/appwindow.d:89
+msgid "Create a new tab"
+msgstr "新建标签页"
+
+#: source/vg/appwindow.d:115
+msgid "Search"
+msgstr "搜索"
+
+#: source/vg/appwindow.d:286
+msgid "File"
+msgstr "文件"
+
+#: source/vg/appwindow.d:289
+msgid "Matches"
+msgstr "匹配"
+
+#: source/vg/appwindow.d:308
+msgid "Line"
+msgstr "行"
+
+#: source/vg/appwindow.d:309
+msgid "Match"
+msgstr "匹配"
+
+#: source/vg/appwindow.d:328
+msgid "Abort the current search"
+msgstr "中止当前搜索"
+
+#: source/vg/appwindow.d:410
+msgid "Starting..."
+msgstr "正在开始搜索…"
+
+#: source/vg/appwindow.d:415
+#, c-format
+msgid "Search %s"
+msgstr "搜索 %s"
+
+#: source/vg/appwindow.d:428
+#, c-format
+msgid "%s, total matches found %d"
+msgstr "%s，总共找到 %d 个匹配项"
+
+#: source/app.d:34
+msgid "Your GTK version is too old, you need at least GTK "
+msgstr "你的 GTK 版本太老，需要至少 GTK "
+
+#: pkg/desktop/com.gexperts.VisualGrep.desktop.in:4
+msgid "A simple GTK3 GUI for grep"
+msgstr "基于 GTK3 的简洁 grep 界面"
+
+#: pkg/desktop/com.gexperts.VisualGrep.desktop.in:10
+msgid "search"
+msgstr "搜索"

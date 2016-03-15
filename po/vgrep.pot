@@ -1,0 +1,147 @@
+# SOME DESCRIPTIVE TITLE.
+# This file is put in the public domain.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: vgrep\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-03-14 19:05-0600\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: source/vg/application.d:128
+msgid "About"
+msgstr ""
+
+#: source/vg/application.d:129
+msgid "Quit"
+msgstr ""
+
+#: source/vg/finddialog.d:56
+msgid "Search Name"
+msgstr ""
+
+#: source/vg/finddialog.d:63
+msgid "Name"
+msgstr ""
+
+#: source/vg/finddialog.d:69
+msgid "Search Text"
+msgstr ""
+
+#: source/vg/finddialog.d:77
+msgid "Pattern"
+msgstr ""
+
+#: source/vg/finddialog.d:87
+msgid "Case Insenstive"
+msgstr ""
+
+#: source/vg/finddialog.d:92
+msgid "Search Path"
+msgstr ""
+
+#: source/vg/finddialog.d:100
+msgid "Path"
+msgstr ""
+
+#: source/vg/finddialog.d:114
+msgid "File Mask"
+msgstr ""
+
+#: source/vg/finddialog.d:124
+msgid "Search Subdirectories"
+msgstr ""
+
+#: source/vg/finddialog.d:131
+msgid "Follow Symlinks"
+msgstr ""
+
+#: source/vg/finddialog.d:155
+msgid "Select Path"
+msgstr ""
+
+#: source/vg/finddialog.d:155
+msgid "Open"
+msgstr ""
+
+#: source/vg/finddialog.d:155
+msgid "Cancel"
+msgstr ""
+
+#: source/vg/finddialog.d:174
+msgid "Find"
+msgstr ""
+
+#: source/vg/appwindow.d:74 source/vg/appwindow.d:241
+#: pkg/desktop/com.gexperts.VisualGrep.desktop.in:3
+#: pkg/desktop/com.gexperts.VisualGrep.desktop.in:3
+msgid "Visual Grep"
+msgstr ""
+
+#: source/vg/appwindow.d:81
+msgid "Initiate new search"
+msgstr ""
+
+#: source/vg/appwindow.d:89
+msgid "Create a new tab"
+msgstr ""
+
+#: source/vg/appwindow.d:115
+msgid "Search"
+msgstr ""
+
+#: source/vg/appwindow.d:286
+msgid "File"
+msgstr ""
+
+#: source/vg/appwindow.d:289
+msgid "Matches"
+msgstr ""
+
+#: source/vg/appwindow.d:308
+msgid "Line"
+msgstr ""
+
+#: source/vg/appwindow.d:309
+msgid "Match"
+msgstr ""
+
+#: source/vg/appwindow.d:328
+msgid "Abort the current search"
+msgstr ""
+
+#: source/vg/appwindow.d:410
+msgid "Starting..."
+msgstr ""
+
+#: source/vg/appwindow.d:415
+#, c-format
+msgid "Search %s"
+msgstr ""
+
+#: source/vg/appwindow.d:428
+#, c-format
+msgid "%s, total matches found %d"
+msgstr ""
+
+#: source/app.d:34
+msgid "Your GTK version is too old, you need at least GTK "
+msgstr ""
+
+#: pkg/desktop/com.gexperts.VisualGrep.desktop.in:4
+#: pkg/desktop/com.gexperts.VisualGrep.desktop.in:4
+msgid "A simple GTK3 GUI for grep"
+msgstr ""
+
+#: pkg/desktop/com.gexperts.VisualGrep.desktop.in:10
+#: pkg/desktop/com.gexperts.VisualGrep.desktop.in:10
+msgid "search"
+msgstr ""
