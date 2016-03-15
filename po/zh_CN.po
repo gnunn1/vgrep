@@ -134,7 +134,7 @@ msgstr "你的 GTK 版本太老，需要至少 GTK "
 
 #: pkg/desktop/com.gexperts.VisualGrep.desktop.in:4
 msgid "A simple GTK3 GUI for grep"
-msgstr "用于 grep 的，简洁的 GTK3 图形界面"
+msgstr "基于 GTK3 的简洁 grep 界面"
 
 #: pkg/desktop/com.gexperts.VisualGrep.desktop.in:10
 msgid "search"
