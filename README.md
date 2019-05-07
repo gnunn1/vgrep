@@ -1,3 +1,5 @@
+## This application is deprecated so no support is available, leaving repo here for posterity only ##
+
 # Visual Grep
 A grep graphical user interface written in D and GTK 3
 
